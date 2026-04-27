@@ -43,6 +43,66 @@ const sistemasUrl = import.meta.env.PUBLIC_SISTEMAS_URL ?? 'http://localhost:808
       >
         Acceso
       </a>
+      <button
+        id="menu-toggle"
+        class="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-on-surface hover:bg-surface-container transition-colors"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <span class="material-symbols-outlined text-[24px]" id="menu-icon">menu</span>
+      </button>
     </div>
   </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden border-t border-outline-variant/40 bg-background/95 backdrop-blur-md"
+  >
+    <nav class="max-w-[1200px] mx-auto px-6 py-4 flex flex-col gap-1">
+      {links.slice(0, -1).map((l) => (
+        <a
+          href={l.href}
+          class="text-sm font-semibold text-on-surface hover:text-secondary-container hover:bg-surface-container rounded-lg px-3 py-2.5 transition-colors"
+        >
+          {l.label}
+        </a>
+      ))}
+      <div class="border-t border-outline-variant/40 mt-2 pt-3 flex flex-col gap-2">
+        <a
+          href="tel:983218630"
+          class="inline-flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary-container px-3 py-2"
+        >
+          <span class="material-symbols-outlined text-[20px]">call</span>
+          983 21 86 30
+        </a>
+        <a
+          href={`${sistemasUrl}/login.php`}
+          class="text-sm font-semibold text-on-surface/40 hover:text-on-surface px-3 py-2 transition-colors"
+        >
+          Acceso interno
+        </a>
+      </div>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+
+  toggle?.addEventListener('click', () => {
+    const open = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', open);
+    if (icon) icon.textContent = open ? 'menu' : 'close';
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      if (icon) icon.textContent = 'menu';
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
