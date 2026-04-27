@@ -1,0 +1,89 @@
+---
+---
+
+<section id="contacto" class="px-4 md:px-10 py-xxl bg-primary-container text-on-primary">
+  <div class="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="flex flex-col gap-5">
+      <span class="font-label-caps text-white/60">CONTACTO</span>
+      <h2 class="font-h2 text-4xl md:text-5xl font-bold leading-tight">
+        ¿Hablamos? Te llamamos en menos de 1 hora
+      </h2>
+      <p class="text-inverse-primary text-lg leading-relaxed">
+        Déjanos tu teléfono y un técnico especialista resolverá tus dudas sin compromiso.
+      </p>
+
+      <ul class="flex flex-col gap-3 mt-2">
+        <li class="flex items-center gap-3">
+          <a href="tel:983218630" class="font-bold hover:underline">983 21 86 30</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <a href="mailto:contacto@gesergas.net" class="font-bold hover:underline">contacto@gesergas.net</a>
+        </li>
+        <li class="flex items-center gap-3">
+          <span>Plaza San Juan, Valladolid</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <span>Lunes a Viernes 9:00 – 18:00</span>
+        </li>
+      </ul>
+    </div>
+
+    <form
+      class="bg-surface-container-lowest text-on-surface rounded-3xl p-6 md:p-8 flex flex-col gap-4 shadow-2xl"
+      method="post"
+      action="#"
+    >
+      <h3 class="font-h3 text-xl font-bold">Solicita tu presupuesto gratuito</h3>
+
+      <label class="flex flex-col gap-1 text-sm font-semibold">
+        Nombre
+        <input
+          type="text"
+          name="nombre"
+          required
+          class="h-12 px-4 rounded-xl border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 outline-none"
+          placeholder="Tu nombre"
+        />
+      </label>
+
+      <label class="flex flex-col gap-1 text-sm font-semibold">
+        Teléfono
+        <input
+          type="tel"
+          name="telefono"
+          required
+          class="h-12 px-4 rounded-xl border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 outline-none"
+          placeholder="600 123 456"
+        />
+      </label>
+
+      <label class="flex flex-col gap-1 text-sm font-semibold">
+        ¿Qué necesitas?
+        <select
+          name="servicio"
+          class="h-12 px-4 rounded-xl border border-outline-variant focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 outline-none bg-white"
+        >
+          <option>Instalación de caldera</option>
+          <option>Mantenimiento / reparación</option>
+          <option>Aire acondicionado</option>
+          <option>Placas solares</option>
+          <option>Fontanería</option>
+          <option>Atención Naturgy</option>
+          <option>Otro</option>
+        </select>
+      </label>
+
+      <label class="flex items-start gap-2 text-xs text-on-surface-variant">
+        <input type="checkbox" required class="mt-1 rounded border-outline-variant" />
+        <span>Acepto la <a href="#" class="underline">política de privacidad</a>.</span>
+      </label>
+
+      <button
+        type="submit"
+        class="h-12 rounded-full bg-secondary-container text-on-secondary-container font-bold uppercase tracking-wide hover:bg-secondary hover:text-white transition-colors"
+      >
+        Solicitar llamada
+      </button>
+    </form>
+  </div>
+</section>

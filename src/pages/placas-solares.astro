@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceContent from '../components/ServiceContent.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const features = [
+  {
+    icon: 'solar_power',
+    title: 'Autoconsumo fotovoltaico',
+    text: 'Genera tu propia electricidad y reduce drásticamente tu factura mensual.',
+  },
+  {
+    icon: 'savings',
+    title: 'Ahorro hasta 70%',
+    text: 'Recupera la inversión en pocos años y disfruta de energía gratis durante décadas.',
+  },
+  {
+    icon: 'eco',
+    title: 'Reducción de huella de carbono',
+    text: 'Apuesta por una energía limpia, renovable e inagotable.',
+  },
+  {
+    icon: 'description',
+    title: 'Tramitamos las ayudas',
+    text: 'Gestionamos por ti el Plan Renove, subvenciones autonómicas y bonificaciones IBI.',
+  },
+  {
+    icon: 'engineering',
+    title: 'Estudio personalizado',
+    text: 'Analizamos tu consumo, orientación y cubierta para dimensionar la instalación ideal.',
+  },
+  {
+    icon: 'shield',
+    title: 'Garantía 25 años',
+    text: 'Paneles con garantía de rendimiento y materiales certificados.',
+  },
+];
+---
+
+<Layout
+  title="Instalación de placas solares en Valladolid | Gesergas"
+  description="Instalación de placas solares y autoconsumo fotovoltaico en Valladolid. Estudio personalizado, gestión de subvenciones y garantía 25 años."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      eyebrow="ENERGÍA RENOVABLE"
+      title="Instalación de placas solares"
+      subtitle="Una gran alternativa para ahorrar en tus facturas, reducir tu huella de carbono y ganar independencia energética. Soluciones personalizadas y rentables."
+      image="https://instalacioncalderasgas.es/wp-content/uploads/2023/07/Imagen-Paneles-Solares-Gesergas.jpg"
+      imageAlt="Placas solares instaladas en una vivienda"
+    />
+    <ServiceContent
+      intro="<strong>No permitas que el alto coste de la electricidad te agobie.</strong> Con nuestras soluciones de energía solar disfrutarás de una fuente inagotable de energía, ahorrarás en tu factura de luz y contribuirás a la protección del medio ambiente."
+      features={features}
+      ctaTitle="¿Listo para producir tu propia energía?"
+    />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

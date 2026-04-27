@@ -1,0 +1,43 @@
+---
+const steps = [
+  {
+    icon: 'call',
+    title: 'Pides presupuesto',
+    text: 'Online o por teléfono en menos de 5 minutos. Sin compromiso ni letra pequeña.',
+  },
+  {
+    icon: 'support_agent',
+    title: 'Asesoramiento técnico',
+    text: 'Un especialista evalúa tu vivienda y te recomienda la mejor solución.',
+  },
+  {
+    icon: 'home_repair_service',
+    title: 'Instalación en 24-48h',
+    text: 'Sin obras molestas, con limpieza total y certificado oficial al terminar.',
+  },
+];
+---
+
+<section class="px-4 md:px-10 py-xxl">
+  <div class="max-w-[1024px] mx-auto text-center">
+    <span class="font-label-caps text-secondary-container">CÓMO TRABAJAMOS</span>
+    <h2 class="font-h2 text-h2 text-on-surface mt-2 mb-md">
+      Tres pasos para tener tu instalación lista
+    </h2>
+    <p class="text-body-lg text-on-surface-variant max-w-[600px] mx-auto mb-xl">
+      Un proceso transparente y rápido, pensado para que solo te preocupes de disfrutar del confort.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+      {steps.map((s, i) => (
+        <div class="relative bg-surface-container-lowest rounded-2xl p-7 border border-outline-variant/40 shadow-sm hover:shadow-md hover:border-primary-container/40 transition">
+          <div class="absolute -top-4 -left-4 w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">
+            {i + 1}
+          </div>
+          <h3 class="font-h3 text-xl font-bold text-on-surface mb-2">{s.title}</h3>
+          <p class="text-on-surface-variant">{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

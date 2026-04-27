@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+---
+
+<Layout
+  title="Contacto | Gesergas - Instalación de calderas en Valladolid"
+  description="Contacta con Gesergas en Valladolid. Plaza San Juan, 983 21 86 30, contacto@gesergas.net. Lunes a viernes de 9 a 18h. Presupuesto sin compromiso."
+>
+  <Header />
+
+  <main>
+    <section class="px-4 md:px-10 pt-12 pb-6 text-center">
+      <span class="font-label-caps text-secondary-container">CONTACTO</span>
+      <h1 class="font-h1 text-4xl md:text-5xl font-black text-on-surface mt-3 mb-4 tracking-[-0.02em]">
+        Resolveremos todas tus dudas
+      </h1>
+      <p class="text-body-lg text-on-surface-variant max-w-[600px] mx-auto">
+        Cuéntanos qué necesitas y te llamamos en menos de 1 hora con una solución a medida.
+      </p>
+    </section>
+
+    <ContactCTA />
+
+    <section class="px-4 md:px-10 py-xxl">
+      <div class="max-w-[1100px] mx-auto rounded-3xl overflow-hidden border border-outline-variant/40 shadow-md">
+        <iframe
+          title="Ubicación Gesergas en Valladolid"
+          src="https://www.google.com/maps?q=Plaza+San+Juan,+Valladolid&output=embed"
+          width="100%"
+          height="420"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

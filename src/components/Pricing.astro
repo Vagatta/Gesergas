@@ -1,0 +1,50 @@
+---
+const includes = [
+  'Retirada y reciclaje de la caldera antigua',
+  'Instalación de la nueva unidad',
+  'Adecuación de tomas de agua y gas',
+  'Puesta en marcha y prueba de presión',
+  'Certificado oficial de instalación',
+  'Garantía de 5 años en piezas y mano de obra',
+];
+---
+
+<section id="precios" class="px-4 md:px-10 py-xxl">
+  <div class="max-w-[1100px] mx-auto bg-surface-container-low rounded-[32px] p-6 md:p-12">
+    <div class="text-center mb-xl">
+      <span class="font-label-caps text-secondary-container">TRANSPARENCIA TOTAL</span>
+      <h2 class="font-h2 text-h2 text-on-surface mt-2 mb-3">Precios claros desde el primer minuto</h2>
+      <p class="text-body-lg text-on-surface-variant">
+        Instalaciones profesionales adaptadas a tu presupuesto.
+      </p>
+    </div>
+
+    <div class="bg-surface-container-lowest rounded-2xl p-6 md:p-10 border border-outline-variant/40 shadow-md flex flex-col md:flex-row gap-10 items-stretch">
+      <div class="flex flex-col gap-2 md:max-w-[260px] md:border-r md:border-outline-variant/40 md:pr-10">
+        <span class="font-label-caps uppercase tracking-widest text-on-surface-variant">Precio orientativo</span>
+        <span class="font-h1 text-5xl md:text-6xl text-primary-container font-black leading-none tracking-tight">
+          Desde 1.200€
+        </span>
+        <span class="text-on-surface-variant text-sm font-medium">Instalación básica e IVA incluidos</span>
+        <a
+          href="#contacto"
+          class="mt-4 inline-flex items-center justify-center rounded-full h-11 px-6 bg-primary-container text-on-primary font-bold text-sm hover:bg-primary transition-colors whitespace-nowrap"
+        >
+          Pedir presupuesto exacto
+        </a>
+      </div>
+
+      <div class="flex-1">
+        <p class="font-h3 text-lg text-on-surface mb-4 font-bold">¿Qué incluye el servicio estándar?</p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6">
+          {includes.map((i) => (
+            <li class="flex items-start gap-2 text-on-surface">
+              <span class="text-on-surface-variant font-bold">✓</span>
+              <span class="font-medium">{i}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

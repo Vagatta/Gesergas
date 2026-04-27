@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceContent from '../components/ServiceContent.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const features = [
+  {
+    icon: 'ac_unit',
+    title: 'Split, multi-split y conductos',
+    text: 'Equipos para cualquier tamaño de vivienda o local, de las mejores marcas del mercado.',
+  },
+  {
+    icon: 'bolt',
+    title: 'Máxima eficiencia A+++',
+    text: 'Bombas de calor inverter de bajo consumo. Ahorro real en la factura todo el año.',
+  },
+  {
+    icon: 'thermostat',
+    title: 'Frío y calor',
+    text: 'Disfruta de un ambiente confortable en verano y un apoyo perfecto a la calefacción en invierno.',
+  },
+  {
+    icon: 'home_repair_service',
+    title: 'Instalación limpia',
+    text: 'Sin obras molestas. Dejamos tu hogar como estaba antes de empezar.',
+  },
+  {
+    icon: 'cleaning_services',
+    title: 'Mantenimiento incluido',
+    text: 'Limpiezas, recargas y revisiones para alargar la vida útil de tu equipo.',
+  },
+  {
+    icon: 'support_agent',
+    title: 'Asesoramiento personalizado',
+    text: 'Estudiamos tu vivienda y te recomendamos la potencia justa que necesitas.',
+  },
+];
+---
+
+<Layout
+  title="Instalación de aires acondicionados en Valladolid | Gesergas"
+  description="Instalación y mantenimiento de aires acondicionados en Valladolid. Split, multi-split y conductos. Equipos A+++ con instalación limpia y rápida."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      eyebrow="CLIMATIZACIÓN"
+      title="Instalación de aires acondicionados"
+      subtitle="Desde sistemas pequeños y económicos hasta soluciones de alta eficiencia para grandes espacios. Disfruta de un verano fresco y un invierno confortable."
+      image="https://instalacioncalderasgas.es/wp-content/uploads/2023/07/Imagen-Aires-Acondicionados-Gesergas.jpg"
+      imageAlt="Equipo split de aire acondicionado moderno instalado en pared"
+    />
+    <ServiceContent
+      intro="Ofrecemos una amplia variedad de opciones para que puedas elegir la que mejor se adapte a tus necesidades y presupuesto. <strong>No permitas que el calor te agobie</strong>: con nuestra instalación profesional disfrutarás de un ambiente fresco y cómodo todo el año."
+      features={features}
+      ctaTitle="¿Quieres climatizar tu hogar?"
+    />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

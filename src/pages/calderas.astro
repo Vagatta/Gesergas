@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceContent from '../components/ServiceContent.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const features = [
+  {
+    icon: 'verified',
+    title: 'Técnicos certificados RITE',
+    text: 'Personal propio cualificado, sin subcontratas, con instalación garantizada.',
+  },
+  {
+    icon: 'eco',
+    title: 'Calderas de condensación',
+    text: 'Hasta un 30% de ahorro respecto a una caldera tradicional. Compatibles con suelo radiante.',
+  },
+  {
+    icon: 'shield',
+    title: '5 años de garantía',
+    text: 'Garantía oficial de fabricante más servicio postventa propio en Valladolid.',
+  },
+  {
+    icon: 'schedule',
+    title: 'Instalación en 24-48h',
+    text: 'Retirada de la antigua, instalación de la nueva, prueba de presión y certificado.',
+  },
+  {
+    icon: 'description',
+    title: 'Mantenimiento periódico',
+    text: 'Revisiones anuales obligatorias y contratos a medida para tu tranquilidad.',
+  },
+  {
+    icon: 'euro_symbol',
+    title: 'Precio cerrado',
+    text: 'El presupuesto que apruebas es el precio final. Sin sorpresas en factura.',
+  },
+];
+---
+
+<Layout
+  title="Mantenimiento y cambio de calderas en Valladolid | Gesergas"
+  description="Instalación, sustitución, mantenimiento y reparación de calderas de gas en Valladolid. Calderas de condensación con 5 años de garantía. Presupuesto sin compromiso."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      eyebrow="MANTENIMIENTO Y CAMBIO DE CALDERAS"
+      title="Calderas de gas que funcionan como el primer día"
+      subtitle="Tu caldera es el corazón de tu hogar. Instalamos, mantenemos y reparamos sistemas de calefacción con tecnología puntera y atención personalizada en Valladolid."
+      image="https://instalacioncalderasgas.es/wp-content/uploads/2023/07/Imagen-Mantenimiento-y-Cambio-de-calderas-Gesergas.jpg"
+      imageAlt="Técnico realizando mantenimiento de una caldera de gas"
+    />
+    <ServiceContent
+      intro="Nuestro equipo de expertos en sistemas de calefacción está altamente capacitado para realizar instalaciones y reparaciones de calidad en todo tipo de calderas. Combinamos atención personalizada con las tecnologías más avanzadas para que tu caldera funcione de manera óptima, ahorrando energía y reduciendo costes."
+      features={features}
+      ctaTitle="¿Necesitas cambiar tu caldera?"
+    />
+    <Pricing />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

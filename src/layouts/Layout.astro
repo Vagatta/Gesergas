@@ -1,0 +1,75 @@
+---
+import FloatingButtons from '../components/FloatingButtons.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Gesergas | Instalación de calderas en Valladolid',
+  description = 'Instalación, reparación y mantenimiento de calderas, aire acondicionado y placas solares en Valladolid. Atención al cliente Naturgy. 15 años de experiencia.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
+    />
+    <script is:inline>
+      document.documentElement.classList.add('fonts-loading');
+      if ('fonts' in document) {
+        document.fonts.load('400 24px "Material Symbols Outlined"').then(() => {
+          document.documentElement.classList.remove('fonts-loading');
+        });
+      } else {
+        document.documentElement.classList.remove('fonts-loading');
+      }
+    </script>
+  </head>
+  <body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+    <slot />
+    <FloatingButtons />
+    <CookieBanner />
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+      .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined';
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-style: normal;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+      /* Oculta el texto de fallback mientras la fuente no ha cargado */
+      html.fonts-loading .material-symbols-outlined {
+        visibility: hidden;
+      }
+      body {
+        font-family: 'Manrope', 'Plus Jakarta Sans', system-ui, sans-serif;
+      }
+    </style>
+  </body>
+</html>

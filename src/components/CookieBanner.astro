@@ -1,0 +1,150 @@
+---
+---
+
+<!-- Banner principal -->
+<div
+  id="cookie-banner"
+  class="fixed bottom-0 left-0 right-0 z-[100] bg-primary-container text-on-primary px-5 py-4 shadow-2xl hidden"
+  role="dialog"
+  aria-label="Aviso de cookies"
+>
+  <div class="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
+    <p class="text-sm leading-relaxed max-w-[680px]">
+      Usamos cookies propias (necesarias) y de terceros para analítica (Google Analytics).
+      Puedes aceptar todas o elegir cuáles activar.
+      <button id="cookie-settings-open" class="underline font-semibold hover:opacity-80 cursor-pointer">Configurar</button>.
+    </p>
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <button
+        id="cookie-reject"
+        class="h-9 px-4 rounded-full border border-on-primary/40 text-sm font-semibold hover:bg-white/10 transition-colors"
+      >
+        Solo necesarias
+      </button>
+      <button
+        id="cookie-accept"
+        class="h-9 px-5 rounded-full bg-secondary-container text-on-secondary-container text-sm font-bold hover:bg-secondary hover:text-white transition-colors"
+      >
+        Aceptar todo
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Panel de configuración -->
+<div
+  id="cookie-settings"
+  class="fixed inset-0 z-[200] flex items-end sm:items-center justify-center bg-black/50 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Configuración de cookies"
+>
+  <div class="bg-surface-container-lowest text-on-surface rounded-t-3xl sm:rounded-3xl w-full sm:max-w-lg p-6 sm:p-8 flex flex-col gap-5 shadow-2xl">
+    <h2 class="font-h2 text-xl font-bold">Configuración de cookies</h2>
+
+    <div class="flex flex-col gap-4">
+      <!-- Cookies necesarias (siempre activas) -->
+      <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-surface-container border border-outline-variant/40">
+        <div>
+          <p class="font-semibold text-sm">Cookies necesarias</p>
+          <p class="text-xs text-on-surface-variant mt-1">Imprescindibles para el funcionamiento del sitio. No pueden desactivarse.</p>
+        </div>
+        <span class="text-xs font-bold text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-full flex-shrink-0">Siempre activas</span>
+      </div>
+
+      <!-- Cookies analíticas -->
+      <div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-surface-container border border-outline-variant/40">
+        <div>
+          <p class="font-semibold text-sm">Cookies analíticas</p>
+          <p class="text-xs text-on-surface-variant mt-1">Google Analytics para medir visitas y mejorar el sitio. Los datos son anónimos.</p>
+        </div>
+        <label class="flex-shrink-0 relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="analytics-toggle" class="sr-only peer" />
+          <div class="w-11 h-6 bg-outline-variant rounded-full peer peer-checked:bg-primary-container transition-colors"></div>
+          <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform peer-checked:translate-x-5"></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex gap-3 justify-end">
+      <button id="cookie-settings-cancel" class="h-10 px-5 rounded-full border border-outline-variant text-sm font-semibold hover:bg-surface-container transition-colors">
+        Cancelar
+      </button>
+      <button id="cookie-settings-save" class="h-10 px-6 rounded-full bg-primary-container text-on-primary text-sm font-bold hover:bg-primary transition-colors">
+        Guardar preferencias
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const COOKIE_KEY = 'gesergas_cookie_consent';
+
+  function loadAnalytics() {
+    // Reemplaza G-XXXXXXXXXX con tu ID real de Google Analytics
+    const GA_ID = 'G-XXXXXXXXXX';
+    const script = document.createElement('script');
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    script.async = true;
+    document.head.appendChild(script);
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).gtag = function() { (window as any).dataLayer.push(arguments); };
+    (window as any).gtag('js', new Date());
+    (window as any).gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  function hideBanner() {
+    document.getElementById('cookie-banner')?.classList.add('hidden');
+  }
+
+  function showSettings() {
+    const panel = document.getElementById('cookie-settings');
+    const toggle = document.getElementById('analytics-toggle') as HTMLInputElement | null;
+    if (!panel || !toggle) return;
+    const stored = localStorage.getItem(COOKIE_KEY);
+    toggle.checked = stored === 'accepted';
+    panel.classList.remove('hidden');
+  }
+
+  function hideSettings() {
+    document.getElementById('cookie-settings')?.classList.add('hidden');
+  }
+
+  function init() {
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+
+    const stored = localStorage.getItem(COOKIE_KEY);
+    if (stored === 'accepted') { loadAnalytics(); return; }
+    if (!stored) { banner.classList.remove('hidden'); }
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'accepted');
+      hideBanner();
+      loadAnalytics();
+    });
+
+    document.getElementById('cookie-reject')?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'rejected');
+      hideBanner();
+    });
+
+    document.getElementById('cookie-settings-open')?.addEventListener('click', showSettings);
+    document.getElementById('cookie-settings-cancel')?.addEventListener('click', hideSettings);
+
+    document.getElementById('cookie-settings-save')?.addEventListener('click', () => {
+      const toggle = document.getElementById('analytics-toggle') as HTMLInputElement | null;
+      const analytics = toggle?.checked ?? false;
+      localStorage.setItem(COOKIE_KEY, analytics ? 'accepted' : 'rejected');
+      hideBanner();
+      hideSettings();
+      if (analytics) loadAnalytics();
+    });
+
+    document.getElementById('cookie-settings')?.addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) hideSettings();
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+</script>

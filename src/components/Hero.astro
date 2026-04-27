@@ -1,0 +1,53 @@
+---
+const heroImg =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuCyjKTNKtpsuimxQy3PaeKIBma-Rr3IwxUFIhW2fhhmyaiCEZEwmkZF9YXPMDBNSJsKPpIBmzYDHbSzkO-jPDfhfB9-Ecm4_yoE_Bl571rfRPYmLJVryqhptlLaul1kPHxSOVKN8pex-95yBA9DEzlGQIdq0ShBxZC-YL96vMinPdiQWaYEFrDDA0uINca9boQKw8VdWqbFivCpvnzXxlfDeely-KwRvxmt0UxGftMdgl_Bm9BqfbWE6pSjohC5u6aMtTJOH54Yyks';
+---
+
+<section class="px-4 md:px-10 pt-6 pb-10">
+  <div class="max-w-[1200px] mx-auto">
+    <div
+      class="relative flex min-h-[600px] flex-col items-center justify-center gap-8 px-6 py-20 md:px-12 md:rounded-[32px] overflow-hidden text-center"
+    >
+      <div
+        class="absolute inset-0 -z-10 bg-cover bg-center scale-105"
+        style={`background-image: url("${heroImg}"); filter: blur(2px);`}
+      ></div>
+      <div class="absolute inset-0 -z-[5] bg-gradient-to-b from-primary/70 via-primary/55 to-primary/85"></div>
+
+      <div class="flex flex-col gap-4 max-w-[820px] relative">
+        <h1 class="font-h1 text-white text-4xl md:text-6xl font-black leading-[1.05] tracking-[-0.025em]">
+          Instalación de calderas en <span class="text-white">24-48h</span> sin complicaciones
+        </h1>
+        <div class="inline-flex self-center items-center gap-3 rounded-2xl bg-white/10 px-5 py-2.5">
+          <span class="text-white/90 text-xs font-semibold tracking-wide">Instaladores autorizados en Valladolid</span>
+        </div>
+        <p class="text-white/85 text-lg md:text-xl leading-relaxed max-w-[640px] mx-auto">
+          Ahorro energético inmediato, rapidez garantizada y 5 años de garantía oficial. Calefacción,
+          aire acondicionado, placas solares y fontanería.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-3 justify-center relative">
+        <a
+          href="#contacto"
+          class="inline-flex items-center justify-center rounded-full h-12 px-7 bg-secondary-container text-on-secondary-container font-bold text-sm md:text-base hover:bg-secondary hover:text-white transition-colors shadow-lg"
+        >
+          Solicitar presupuesto gratuito
+        </a>
+        <a
+          href="tel:983218630"
+          class="inline-flex items-center gap-2 justify-center rounded-full h-12 px-7 bg-white/10 backdrop-blur-md text-white border border-white/30 font-bold text-sm md:text-base hover:bg-white/20 transition-colors"
+        >
+          <span class="material-symbols-outlined text-[18px]">call</span>
+          983 21 86 30
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-x-8 gap-y-3 justify-center text-white/90 text-sm font-semibold relative">
+        <span>Respuesta en menos de 1 hora</span>
+        <span>Presupuesto sin compromiso</span>
+        <span>Certificado RITE</span>
+      </div>
+    </div>
+  </div>
+</section>
