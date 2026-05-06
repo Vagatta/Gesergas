@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceContent from '../components/ServiceContent.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const features = [
+  {
+    icon: 'plumbing',
+    title: 'Reparación de fugas',
+    text: 'Detección sin obra y reparación rápida de tuberías, grifería y desagües.',
+  },
+  {
+    icon: 'water_drop',
+    title: 'Atascos y drenajes',
+    text: 'Desatrancamos cualquier tubería con tecnología profesional, sin romper paredes.',
+  },
+  {
+    icon: 'home_repair_service',
+    title: 'Instalaciones completas',
+    text: 'Reformas de baño, cocina y nuevas instalaciones de fontanería desde cero.',
+  },
+  {
+    icon: 'bolt',
+    title: 'Urgencias',
+    text: 'Respuesta rápida cuando más lo necesitas, en Valladolid y alrededores.',
+  },
+  {
+    icon: 'verified',
+    title: 'Materiales certificados',
+    text: 'Trabajamos con marcas de primera calidad y damos garantía en cada reparación.',
+  },
+  {
+    icon: 'savings',
+    title: 'Descuentos a clientes recurrentes',
+    text: 'Adaptamos el presupuesto a tu situación y premiamos tu fidelidad.',
+  },
+];
+---
+
+<Layout
+  title="Fontanería en Valladolid — Fugas, atascos e instalaciones | Gesergas"
+  description="Servicio de fontanería en Valladolid: reparación de fugas, atascos, instalaciones completas y reformas de baño. Respuesta rápida, materiales certificados y presupuesto sin compromiso."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      eyebrow="FONTANERÍA"
+      title="Fugas, reparaciones e instalaciones completas"
+      subtitle="¿Tuberías rotas, atascos o problemas de drenaje? Nuestro equipo de fontaneros está listo para resolver cualquier incidencia, grande o pequeña."
+      image="https://instalacioncalderasgas.es/wp-content/uploads/2023/07/Imagen-Fontaneria-Gesergas.jpg"
+      imageAlt="Fontanero profesional reparando una instalación"
+    />
+    <ServiceContent
+      intro="Nuestro servicio destaca por su <strong>trato personalizado y respuesta rápida</strong>. Desde pequeñas reparaciones hasta instalaciones completas, ofrecemos soluciones adaptadas a tu presupuesto con descuentos especiales para clientes recurrentes."
+      features={features}
+      ctaTitle="¿Tienes una fuga o avería?"
+    />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,91 @@
+---
+const services = [
+  {
+    icon: 'local_fire_department',
+    title: 'Calderas de gas',
+    desc: 'Instalación, sustitución y mantenimiento de calderas de condensación y gas natural.',
+    href: '/calderas',
+    bullets: ['Hasta 30% de ahorro en gas', '5 años de garantía oficial', 'Compatibles con suelo radiante'],
+  },
+  {
+    icon: 'mode_fan',
+    title: 'Aire acondicionado',
+    desc: 'Equipos split, multi-split y conductos de las mejores marcas.',
+    href: '/aire-acondicionado',
+    bullets: ['Bomba de calor frío/calor', 'Bajo consumo A+++', 'Mantenimiento incluido'],
+  },
+  {
+    icon: 'solar_power',
+    title: 'Placas solares',
+    desc: 'Autoconsumo fotovoltaico y solar térmico con tramitación de subvenciones.',
+    href: '/placas-solares',
+    bullets: ['Plan Renove y ayudas', 'Reducción factura eléctrica', 'Garantía 25 años en paneles'],
+  },
+  {
+    icon: 'plumbing',
+    title: 'Fontanería',
+    desc: 'Reparación de fugas, instalaciones completas y reformas de baño.',
+    href: '/fontaneria',
+    bullets: ['Detección sin obra', 'Urgencias 24h', 'Materiales certificados'],
+  },
+  {
+    icon: 'support_agent',
+    title: 'Atención Naturgy',
+    desc: 'Punto oficial Naturgy en Plaza San Juan: contratos, dudas y trámites.',
+    href: '/naturgy',
+    bullets: ['Altas y cambios de tarifa', 'Gestión de averías', 'Asesoramiento personalizado'],
+  },
+  {
+    icon: 'heat_pump',
+    title: 'Aerotermia',
+    desc: 'Sistemas de aerotermia de alta eficiencia para calefacción, refrigeración y ACS.',
+    href: '/aerotermia',
+    bullets: ['Hasta 75% de ahorro energético', 'Bomba de calor aire-agua', 'Compatible con suelo radiante'],
+  },
+  {
+    icon: 'thermostat',
+    title: 'Suelo radiante',
+    desc: 'Instalación de suelo radiante hidráulico y eléctrico para un confort óptimo.',
+    href: '/suelo-radiante',
+    bullets: ['Calor homogéneo en toda la estancia', 'Compatible con aerotermia', 'Eficiencia energética A+'],
+  },
+];
+---
+
+<section id="instalaciones" class="px-4 md:px-10 py-xxl bg-surface-container-low">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-xl">
+      <span class="font-label-caps text-secondary-container">NUESTROS SERVICIOS</span>
+      <h2 class="font-h2 text-h2 text-on-surface mt-2 mb-3">
+        Soluciones integrales para tu hogar
+      </h2>
+      <p class="text-body-lg text-on-surface-variant max-w-[640px] mx-auto">
+        Calefacción, climatización, energías renovables y fontanería con un único equipo de
+        confianza.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {services.map((s) => (
+        <a href={s.href} class="group bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/40 shadow-sm hover:shadow-lg hover:border-primary-container/40 hover:-translate-y-1 transition flex flex-col gap-4">
+          <div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-primary-container">
+            <span class="material-symbols-outlined text-[28px]">{s.icon}</span>
+          </div>
+          <h3 class="font-h3 text-xl font-bold text-on-surface group-hover:text-primary-container transition-colors">{s.title}</h3>
+          <p class="text-on-surface-variant">{s.desc}</p>
+          <ul class="flex flex-col gap-2 mt-auto pt-2">
+            {s.bullets.map((b) => (
+              <li class="flex items-start gap-2 text-sm text-on-surface">
+                <span class="material-symbols-outlined text-on-surface-variant text-[20px] mt-[2px]">check_circle</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+          <span class="inline-flex items-center gap-1 text-sm font-bold text-primary-container mt-2">
+            Ver más <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,129 @@
+---
+const serviceLinks = [
+  { href: '/calderas', label: 'Calderas de gas' },
+  { href: '/aire-acondicionado', label: 'Aire acondicionado' },
+  { href: '/aerotermia', label: 'Aerotermia' },
+  { href: '/suelo-radiante', label: 'Suelo radiante' },
+  { href: '/placas-solares', label: 'Placas solares' },
+  { href: '/fontaneria', label: 'Fontanería' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-outline-variant/40">
+  <div class="max-w-[1200px] mx-auto flex items-center justify-between px-6 lg:px-10 py-4">
+    <a href="/" class="flex items-center gap-3 text-primary-container">
+      <div class="size-7">
+        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+        </svg>
+      </div>
+      <span class="font-h2 text-lg font-bold tracking-tight">Gesergas</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-6">
+      <div class="relative group">
+        <button class="flex items-center gap-1 text-sm font-semibold text-on-surface hover:text-secondary-container transition-colors">
+          Servicios
+          <span class="material-symbols-outlined text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+        </button>
+        <div class="absolute left-0 top-full pt-2 hidden group-hover:block z-50">
+          <div class="bg-background border border-outline-variant/40 rounded-2xl shadow-lg py-2 min-w-[200px]">
+            {serviceLinks.map((l) => (
+              <a
+                href={l.href}
+                class="block px-4 py-2.5 text-sm font-semibold text-on-surface hover:text-secondary-container hover:bg-surface-container transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+      <a href="/naturgy" class="text-sm font-semibold text-on-surface hover:text-secondary-container transition-colors">
+        Naturgy
+      </a>
+      <a href="/contacto" class="text-sm font-semibold text-on-surface hover:text-secondary-container transition-colors">
+        Contacto
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="tel:983218630"
+        class="hidden sm:inline-flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary-container transition-colors"
+      >
+        <span class="material-symbols-outlined text-[20px]">call</span>
+        983 21 86 30
+      </a>
+      <a
+        href="/contacto"
+        class="inline-flex items-center justify-center rounded-full h-10 px-5 bg-primary-container text-on-primary text-sm font-bold tracking-wide hover:bg-primary transition-colors"
+      >
+        Presupuesto
+      </a>
+      <button
+        id="menu-toggle"
+        class="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg text-on-surface hover:bg-surface-container transition-colors"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <span class="material-symbols-outlined text-[24px]" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden border-t border-outline-variant/40 bg-background/95 backdrop-blur-md"
+  >
+    <nav class="max-w-[1200px] mx-auto px-6 py-4 flex flex-col gap-1">
+      <p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest px-3 pt-1 pb-1">Servicios</p>
+      {serviceLinks.map((l) => (
+        <a
+          href={l.href}
+          class="text-sm font-semibold text-on-surface hover:text-secondary-container hover:bg-surface-container rounded-lg px-3 py-2.5 transition-colors"
+        >
+          {l.label}
+        </a>
+      ))}
+      <div class="border-t border-outline-variant/40 mt-2 pt-2 flex flex-col gap-1">
+        <a href="/naturgy" class="text-sm font-semibold text-on-surface hover:text-secondary-container hover:bg-surface-container rounded-lg px-3 py-2.5 transition-colors">
+          Naturgy
+        </a>
+        <a href="/contacto" class="text-sm font-semibold text-on-surface hover:text-secondary-container hover:bg-surface-container rounded-lg px-3 py-2.5 transition-colors">
+          Contacto
+        </a>
+      </div>
+      <div class="border-t border-outline-variant/40 mt-2 pt-3">
+        <a
+          href="tel:983218630"
+          class="inline-flex items-center gap-2 text-sm font-bold text-on-surface hover:text-secondary-container px-3 py-2"
+        >
+          <span class="material-symbols-outlined text-[20px]">call</span>
+          983 21 86 30
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('menu-icon');
+
+  toggle?.addEventListener('click', () => {
+    const open = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', open);
+    if (icon) icon.textContent = open ? 'menu' : 'close';
+    toggle.setAttribute('aria-expanded', String(!open));
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      if (icon) icon.textContent = 'menu';
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

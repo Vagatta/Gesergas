@@ -1,0 +1,21 @@
+---
+const stats = [
+  { label: 'Valoración Google', value: '4,9/5', icon: 'star' },
+  { label: 'Años de experiencia', value: '+15', icon: 'workspace_premium' },
+  { label: 'Instalaciones realizadas', value: '+2.500', icon: 'engineering' },
+  { label: 'Tiempo medio de respuesta', value: '<1h', icon: 'bolt' },
+];
+---
+
+<section class="px-4 md:px-10 py-10">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+    {stats.map((s) => (
+      <div class="rounded-2xl bg-surface-container-lowest border border-outline-variant/30 p-6 flex flex-col gap-2 shadow-sm">
+        <p class="font-h2 text-3xl md:text-4xl font-black text-primary-container leading-none tracking-tight">
+          {s.value}
+        </p>
+        <p class="text-sm font-semibold text-on-surface-variant uppercase tracking-wide">{s.label}</p>
+      </div>
+    ))}
+  </div>
+</section>

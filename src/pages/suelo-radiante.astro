@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceContent from '../components/ServiceContent.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const features = [
+  {
+    icon: 'thermostat',
+    title: 'Calor homogéneo y confortable',
+    text: 'El calor se distribuye de forma uniforme por todo el suelo, eliminando las corrientes de aire y los puntos fríos.',
+  },
+  {
+    icon: 'savings',
+    title: 'Mayor eficiencia energética',
+    text: 'Trabaja a temperaturas más bajas que los radiadores tradicionales, reduciendo el consumo entre un 15% y un 25%.',
+  },
+  {
+    icon: 'heat_pump',
+    title: 'Compatible con aerotermia',
+    text: 'La combinación perfecta. El suelo radiante saca el máximo partido a la bomba de calor, multiplicando el ahorro.',
+  },
+  {
+    icon: 'spa',
+    title: 'Confort silencioso',
+    text: 'Sin radiadores, sin ruidos, sin corrientes. Solo temperatura perfecta en cada rincón de tu hogar.',
+  },
+  {
+    icon: 'engineering',
+    title: 'Instalación profesional',
+    text: 'Técnicos propios especializados en suelo radiante hidráulico y eléctrico para obras nuevas y reformas.',
+  },
+  {
+    icon: 'auto_mode',
+    title: 'Control inteligente',
+    text: 'Integración con termostatos inteligentes para gestionar cada zona de forma independiente desde el móvil.',
+  },
+];
+---
+
+<Layout
+  title="Instalación de suelo radiante en Valladolid — Hidráulico y eléctrico | Gesergas"
+  description="Instala suelo radiante en Valladolid: hidraúlico o eléctrico, compatible con aerotermia y calderas. Confort térmico uniforme, bajo consumo y máxima eficiencia. Presupuesto gratuito."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      eyebrow="SUELO RADIANTE"
+      title="Suelo radiante: el confort que no se ve"
+      subtitle="La forma más confortable y eficiente de calefactar tu hogar. Calor uniforme desde el suelo, sin radiadores, sin ruido y con un ahorro energético real."
+      image="https://instalacioncalderasgas.es/wp-content/uploads/2023/07/Imagen-Mantenimiento-y-Cambio-de-calderas-Gesergas.jpg"
+      imageAlt="Instalación de suelo radiante hidráulico"
+    />
+    <ServiceContent
+      intro="El suelo radiante ofrece el confort térmico más elevado del mercado. Al calentar desde el suelo, el calor asciende de forma natural y homogénea, sin corrientes de aire ni puntos fríos. <strong>La solución ideal para obras nuevas y reformas integrales.</strong>"
+      features={features}
+      ctaTitle="¿Quieres instalar suelo radiante?"
+    />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

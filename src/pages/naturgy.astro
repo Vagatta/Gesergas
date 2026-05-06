@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceContent from '../components/ServiceContent.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const features = [
+  {
+    icon: 'support_agent',
+    title: 'Atención presencial',
+    text: 'Te atendemos en nuestra oficina de Plaza San Juan, Valladolid, sin colas ni esperas eternas.',
+  },
+  {
+    icon: 'description',
+    title: 'Altas y cambios de tarifa',
+    text: 'Te asesoramos para que elijas el plan de luz y gas que más te conviene.',
+  },
+  {
+    icon: 'gas_meter',
+    title: 'Gestión de averías',
+    text: 'Tramitamos averías en tu suministro y hacemos el seguimiento por ti.',
+  },
+  {
+    icon: 'receipt_long',
+    title: 'Revisión de facturas',
+    text: 'Analizamos tus facturas para detectar errores y posibles ahorros.',
+  },
+  {
+    icon: 'schedule',
+    title: 'Trámites rápidos',
+    text: 'Solucionamos cualquier gestión con Naturgy de forma ágil y efectiva.',
+  },
+  {
+    icon: 'verified_user',
+    title: 'Punto oficial Naturgy',
+    text: 'Somos colaboradores autorizados, con la confianza y respaldo de la marca.',
+  },
+];
+---
+
+<Layout
+  title="Atención al cliente Naturgy en Valladolid | Gesergas"
+  description="Atención al cliente Naturgy en Valladolid: altas, cambios de tarifa, gestión de averías y trámites. Oficina presencial en Plaza San Juan."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      eyebrow="ATENCIÓN AL CLIENTE"
+      title="Atención al cliente de Luz y Gas Naturgy"
+      subtitle="En Gesergas entendemos que tu tiempo es valioso. Resolvemos tus dudas y trámites con Naturgy de forma rápida y efectiva, en persona y sin esperas."
+      image="https://instalacioncalderasgas.es/wp-content/uploads/2023/06/Imagen-Arriba-Atencion-al-Cliente-Naturgy-1-1024x683.jpg"
+      imageAlt="Oficina de atención al cliente Naturgy en Valladolid"
+    />
+    <ServiceContent
+      intro="Garantizamos solucionar el problema que tengas lo más rápido posible. Nuestro equipo de atención al cliente está disponible para resolver todas las dudas que tengas, ofreciéndote una solución <strong>rápida y efectiva</strong>."
+      features={features}
+      ctaTitle="¿Tienes dudas con tu factura o suministro?"
+    />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

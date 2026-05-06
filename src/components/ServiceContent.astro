@@ -1,0 +1,62 @@
+---
+export interface Feature {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+export interface Props {
+  intro?: string;
+  features: Feature[];
+  ctaTitle?: string;
+}
+
+const {
+  intro,
+  features,
+  ctaTitle = '¿Hablamos? Te asesoramos sin compromiso',
+} = Astro.props;
+---
+
+<section class="px-4 md:px-10 py-xxl bg-surface-container-low">
+  <div class="max-w-[1100px] mx-auto flex flex-col gap-xl">
+    {intro && (
+      <p class="text-body-lg md:text-xl text-on-surface leading-relaxed max-w-[860px] mx-auto text-center">
+        <Fragment set:html={intro} />
+      </p>
+    )}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-md">
+      {features.map((f) => (
+        <div class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/40 shadow-sm flex flex-col gap-3">
+          <div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary-container">
+            <span class="material-symbols-outlined text-[24px]">{f.icon}</span>
+          </div>
+          <h3 class="font-h3 text-lg font-bold text-on-surface">{f.title}</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">{f.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-primary-container text-on-primary rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 mt-md">
+      <div>
+        <h3 class="font-h2 text-2xl md:text-3xl font-bold mb-1">{ctaTitle}</h3>
+        <p class="text-inverse-primary text-sm">Te llamamos en menos de 1 hora.</p>
+      </div>
+      <div class="flex gap-3 flex-wrap">
+        <a
+          href="/contacto"
+          class="inline-flex items-center justify-center rounded-full h-12 px-7 bg-secondary-container text-on-secondary-container font-bold text-sm hover:bg-secondary hover:text-white transition-colors"
+        >
+          Pedir presupuesto
+        </a>
+        <a
+          href="tel:983218630"
+          class="inline-flex items-center justify-center rounded-full h-12 px-7 bg-white/10 border border-white/30 text-white font-bold text-sm hover:bg-white/20 transition-colors"
+        >
+          Llamar ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

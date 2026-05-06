@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceContent from '../components/ServiceContent.astro';
+import Testimonials from '../components/Testimonials.astro';
+
+const features = [
+  {
+    icon: 'heat_pump',
+    title: 'Bomba de calor aire-agua',
+    text: 'Extrae energía del aire exterior para generar calefacción, refrigeración y agua caliente sanitaria con máxima eficiencia.',
+  },
+  {
+    icon: 'savings',
+    title: 'Hasta 75% de ahorro',
+    text: 'Por cada kWh eléctrico consumido, la aerotermia genera entre 3 y 5 kWh de energía térmica.',
+  },
+  {
+    icon: 'eco',
+    title: 'Energía renovable',
+    text: 'Sistema clasificado como energía renovable según la normativa europea. Reduce tu huella de carbono significativamente.',
+  },
+  {
+    icon: 'thermostat',
+    title: 'Frío, calor y ACS',
+    text: 'Una sola instalación para calefacción en invierno, refrigeración en verano y agua caliente todo el año.',
+  },
+  {
+    icon: 'verified',
+    title: 'Técnicos certificados',
+    text: 'Instaladores propios con certificación oficial. Sin subcontratas, con garantía total del trabajo realizado.',
+  },
+  {
+    icon: 'description',
+    title: 'Subvenciones disponibles',
+    text: 'Tramitamos las ayudas del Plan Renove y fondos Next Generation para que maximices el ahorro en la instalación.',
+  },
+];
+---
+
+<Layout
+  title="Instalación de aerotermia en Valladolid — Bomba de calor aire-agua | Gesergas"
+  description="Instala aerotermia en Valladolid y ahorra hasta un 75% en calefacción, refrigeración y agua caliente. Bomba de calor aire-agua con subvenciones disponibles. Presupuesto gratuito."
+>
+  <Header />
+  <main>
+    <ServiceHero
+      eyebrow="AEROTERMIA"
+      title="Aerotermia: eficiencia máxima para tu hogar"
+      subtitle="La alternativa más eficiente a la caldera tradicional. Un solo sistema para calefacción, refrigeración y agua caliente, con hasta un 75% de ahorro en tu factura energética."
+      image="https://instalacioncalderasgas.es/wp-content/uploads/2023/07/Imagen-Mantenimiento-y-Cambio-de-calderas-Gesergas.jpg"
+      imageAlt="Sistema de aerotermia instalado en vivienda"
+    />
+    <ServiceContent
+      intro="La aerotermia es la tecnología de climatización más eficiente del mercado. Aprovecha la energía del aire exterior para calefactar, refrigerar y producir agua caliente, consumiendo muy poca electricidad. <strong>Una inversión que se amortiza en pocos años.</strong>"
+      features={features}
+      ctaTitle="¿Te interesa la aerotermia?"
+    />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

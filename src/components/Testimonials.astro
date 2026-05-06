@@ -1,0 +1,61 @@
+---
+const reviews = [
+  {
+    name: 'Jose María Vicente Arias',
+    text: 'Trato excelente y muy profesional. Me cambiaron la caldera en menos de 24 horas y todo quedó impecable.',
+    rating: 5,
+  },
+  {
+    name: 'Cris Lorenzo',
+    text: 'Siempre que he ido a la oficina me han atendido amablemente y aconsejado muy bien sobre tarifas. 100% recomendable.',
+    rating: 5,
+  },
+  {
+    name: 'Pilar Diez Redondo',
+    text: 'Instalaron el aire acondicionado en mi piso y me asesoraron también con una subvención. Todo fácil y sin sorpresas.',
+    rating: 5,
+  },
+  {
+    name: 'Juan Carlos Zamora',
+    text: 'Vinieron rápido a una urgencia de fontanería. Profesionales serios y precio justo.',
+    rating: 5,
+  },
+  {
+    name: 'Paloma García',
+    text: 'Llevamos años con ellos para el mantenimiento. Siempre puntuales y muy claros con el presupuesto.',
+    rating: 5,
+  },
+  {
+    name: 'Abel Aguado Roman',
+    text: 'Excelente equipo. Me gestionaron las placas solares de principio a fin, incluida la subvención.',
+    rating: 5,
+  },
+];
+---
+
+<section id="testimonios" class="px-4 md:px-10 py-xxl bg-surface-container-low">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-xl">
+      <span class="font-label-caps text-secondary-container">OPINIONES REALES</span>
+      <h2 class="font-h2 text-h2 text-on-surface mt-2 mb-3">Nuestros clientes nos valoran</h2>
+      <div class="inline-flex items-center gap-2 text-on-surface">
+        <span class="font-bold">4,9/5</span>
+        <span class="text-on-surface-variant">basado en reseñas de Google</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {reviews.map((r) => (
+        <article class="bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/40 shadow-sm flex flex-col gap-3">
+          <p class="text-on-surface leading-relaxed">"{r.text}"</p>
+          <div class="flex items-center gap-3 mt-2 pt-3 border-t border-outline-variant/40">
+            <div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold">
+              {r.name.charAt(0)}
+            </div>
+            <span class="font-bold text-on-surface text-sm">{r.name}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
